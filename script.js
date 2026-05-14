@@ -1,17 +1,16 @@
 const farmConfig = {
-  farmName: "Sunrise Mango Farm",
-  sellerPhoneDisplay: "+1 (555) 123-4567",
-  sellerWhatsAppNumber: "15551234567",
+  farmName: "Dattaguru Mango Farm",
+  sellerPhoneDisplay: "+91 92264 50614",
+  sellerWhatsAppNumber: "919226450614",
   rates: {
-    "10 lb box": 28,
-    "5 lb box": 16,
-    "single dozen": 22,
+    "1 dozen": 220,
+    "5 dozen": 1000,
   },
 };
 
 const currency = new Intl.NumberFormat("en-US", {
   style: "currency",
-  currency: "USD",
+  currency: "INR",
   maximumFractionDigits: 0,
 });
 
