@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunrise Mango Farm | Fresh Mango Orders</title>
+    <meta
+      name="description"
+      content="Order fresh seasonal mangoes directly from Sunrise Mango Farm."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Sunrise Mango Farm home">
+        <span class="brand-mark">SM</span>
+        <span>Sunrise Mango Farm</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#mangoes">Mangoes</a>
+        <a href="#order">Order</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Mangoes_in_the_tree.JPG?width=1800"
+          alt="Fresh mangoes growing on a mango tree"
+        />
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Seasonal harvest now open</p>
+          <h1 id="hero-title">Fresh farm mangoes, picked for your order</h1>
+          <p>
+            Sweet, fragrant mangoes from our family farm. Reserve your box,
+            share your delivery address, and we will confirm your order by
+            phone or WhatsApp.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#order">Place order</a>
+            <a class="button secondary" href="tel:+15551234567">Call seller</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="rate-strip" aria-label="Current mango rates">
+        <div>
+          <span class="label">Current rate</span>
+          <strong id="displayRate">$28 / 10 lb box</strong>
+        </div>
+        <div>
+          <span class="label">Delivery</span>
+          <strong>Local delivery or farm pickup</strong>
+        </div>
+        <div>
+          <span class="label">Season</span>
+          <strong>Limited weekly harvest</strong>
+        </div>
+      </section>
+
+      <section class="section" id="mangoes">
+        <div class="section-heading">
+          <p class="eyebrow">What we sell</p>
+          <h2>Tree-ripened mangoes with simple ordering</h2>
+        </div>
+        <div class="mango-grid">
+          <article class="mango-card">
+            <img
+              src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Mangoes_Gone_Ripe_(3579718218).jpg?width=900"
+              alt="Ripe mangoes arranged together"
+            />
+            <div>
+              <h3>Premium ripe mango box</h3>
+              <p>
+                Best for eating fresh, gifting, smoothies, desserts, and family
+                sharing.
+              </p>
+            </div>
+          </article>
+          <article class="mango-card">
+            <img
+              src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Mangoes_in_the_tree.JPG?width=900"
+              alt="Mangoes hanging from a tree"
+            />
+            <div>
+              <h3>Harvested in small batches</h3>
+              <p>
+                We pick in season and confirm availability before collecting
+                payment.
+              </p>
+            </div>
+          </article>
+          <article class="mango-card accent-card">
+            <span class="big-rate">$28</span>
+            <h3>Per 10 lb box</h3>
+            <p>
+              Update this rate anytime in <strong>script.js</strong>. Quantity
+              and estimated total are calculated automatically.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="order-band" id="order" aria-labelledby="order-title">
+        <div class="order-copy">
+          <p class="eyebrow">Reserve your mangoes</p>
+          <h2 id="order-title">Place an order</h2>
+          <p>
+            Fill in the details below. When you submit, the page prepares a
+            WhatsApp order message for the seller and also shows a clean order
+            summary on the page.
+          </p>
+          <ul class="checks">
+            <li>No payment taken online yet</li>
+            <li>Seller confirms stock and delivery time</li>
+            <li>Works as a static page for easy hosting</li>
+          </ul>
+        </div>
+
+        <form class="order-form" id="orderForm">
+          <div class="form-row">
+            <label for="customerName">Full name</label>
+            <input id="customerName" name="customerName" type="text" required />
+          </div>
+
+          <div class="form-row">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" required />
+          </div>
+
+          <div class="form-row split">
+            <div>
+              <label for="quantity">Quantity</label>
+              <input
+                id="quantity"
+                name="quantity"
+                type="number"
+                min="1"
+                max="50"
+                value="1"
+                required
+              />
+            </div>
+            <div>
+              <label for="unit">Unit</label>
+              <select id="unit" name="unit">
+                <option value="10 lb box">10 lb box</option>
+                <option value="5 lb box">5 lb box</option>
+                <option value="single dozen">Single dozen</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="delivery">Delivery option</label>
+            <select id="delivery" name="delivery">
+              <option value="Local delivery">Local delivery</option>
+              <option value="Farm pickup">Farm pickup</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="address">Delivery address</label>
+            <textarea
+              id="address"
+              name="address"
+              rows="3"
+              placeholder="Street, city, ZIP code"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-row">
+            <label for="notes">Notes</label>
+            <textarea
+              id="notes"
+              name="notes"
+              rows="3"
+              placeholder="Preferred delivery time, ripeness preference, or gift note"
+            ></textarea>
+          </div>
+
+          <div class="total-box" aria-live="polite">
+            <span>Estimated total</span>
+            <strong id="estimatedTotal">$28</strong>
+          </div>
+
+          <div class="form-actions">
+            <button class="button primary" type="submit">Send order</button>
+            <button class="button ghost" id="copyOrder" type="button">
+              Copy details
+            </button>
+          </div>
+
+          <p class="form-note">
+            After submitting, please confirm with the seller before making any
+            payment.
+          </p>
+        </form>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="section-heading">
+          <p class="eyebrow">Talk to us</p>
+          <h2>Seller contact numbers</h2>
+        </div>
+        <div class="contact-grid">
+          <a class="contact-card" href="tel:+15551234567">
+            <span>Primary seller</span>
+            <strong>+1 (555) 123-4567</strong>
+          </a>
+          <a class="contact-card" href="tel:+15559876543">
+            <span>Delivery contact</span>
+            <strong>+1 (555) 987-6543</strong>
+          </a>
+          <a
+            class="contact-card"
+            href="https://wa.me/15551234567"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>WhatsApp orders</span>
+            <strong>Message the farm</strong>
+          </a>
+        </div>
+      </section>
+
+      <section class="order-summary" id="orderSummary" hidden>
+        <h2>Order summary</h2>
+        <pre id="summaryText"></pre>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Replace the sample phone numbers, rate, and photos with your farm
+        details before publishing.
+      </p>
+      <p class="credit">
+        Sample mango photos from Wikimedia Commons:
+        <a href="https://commons.wikimedia.org/wiki/File:Mangoes_in_the_tree.JPG"
+          >tree photo</a
+        >,
+        <a
+          href="https://commons.wikimedia.org/wiki/File:Mangoes_Gone_Ripe_(3579718218).jpg"
+          >ripe mango photo</a
+        >.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
