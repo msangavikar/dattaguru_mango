@@ -1,10 +1,11 @@
 const farmConfig = {
   farmName: "Dattaguru Mango Farm",
-  sellerPhoneDisplay: "+91 92264 50614",
+  sellerPhoneDisplay: "+91 98920 90429",
   sellerWhatsAppNumber: "919226450614",
   rates: {
-    "1 kg": 220,
+    "1 kg": 230,
     "5 kg": 1000,
+    "10 kg bulk": 2000,
   },
 };
 
