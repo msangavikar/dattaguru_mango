@@ -46,19 +46,13 @@ function buildOrderMessage() {
   const unit = data.get("unit");
   const rate = getRate();
   const total = getEstimatedTotal();
-  const quantityLabel =
-    quantity === 1
-      ? unit
-      : unit === "single dozen"
-        ? "dozens"
-        : `${unit}es`;
 
   return [
     `New mango order for ${farmConfig.farmName}`,
     "",
     `Name: ${data.get("customerName")}`,
     `Phone: ${data.get("phone")}`,
-    `Quantity: ${quantity} ${quantityLabel}`,
+    `Quantity: ${quantity} x ${unit}`,
     `Rate: ${currency.format(rate)} per ${unit}`,
     `Estimated total: ${currency.format(total)}`,
     `Delivery option: ${data.get("delivery")}`,
