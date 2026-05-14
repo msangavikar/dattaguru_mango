@@ -337,6 +337,10 @@ label {
   font-weight: 850;
 }
 
+label span {
+  color: var(--mango);
+}
+
 input,
 select,
 textarea {
@@ -358,6 +362,11 @@ select:focus,
 textarea:focus {
   outline: 3px solid rgba(244, 182, 63, 0.35);
   border-color: var(--sun);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .total-box {

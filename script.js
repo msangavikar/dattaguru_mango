@@ -3,12 +3,12 @@ const farmConfig = {
   sellerPhoneDisplay: "+91 92264 50614",
   sellerWhatsAppNumber: "919226450614",
   rates: {
-    "1 dozen": 220,
-    "5 dozen": 1000,
+    "1 kg": 220,
+    "5 kg": 1000,
   },
 };
 
-const currency = new Intl.NumberFormat("en-US", {
+const currency = new Intl.NumberFormat("en-IN", {
   style: "currency",
   currency: "INR",
   maximumFractionDigits: 0,
@@ -22,6 +22,7 @@ const displayRate = document.querySelector("#displayRate");
 const summarySection = document.querySelector("#orderSummary");
 const summaryText = document.querySelector("#summaryText");
 const copyButton = document.querySelector("#copyOrder");
+const sendButton = document.querySelector("#sendOrder");
 
 function getRate() {
   return farmConfig.rates[unitInput.value] || 0;
@@ -40,6 +41,12 @@ function updateTotals() {
   displayRate.textContent = `${currency.format(getRate())} / ${unitInput.value}`;
 }
 
+function updateFormState() {
+  const isComplete = form.checkValidity();
+  sendButton.disabled = !isComplete;
+  copyButton.disabled = !isComplete;
+}
+
 function buildOrderMessage() {
   const data = new FormData(form);
   const quantity = getQuantity();
@@ -55,7 +62,6 @@ function buildOrderMessage() {
     `Quantity: ${quantity} x ${unit}`,
     `Rate: ${currency.format(rate)} per ${unit}`,
     `Estimated total: ${currency.format(total)}`,
-    `Delivery option: ${data.get("delivery")}`,
     `Address: ${data.get("address")}`,
     `Notes: ${data.get("notes") || "None"}`,
     "",
@@ -105,5 +111,8 @@ copyButton.addEventListener("click", async () => {
 
 quantityInput.addEventListener("input", updateTotals);
 unitInput.addEventListener("change", updateTotals);
+form.addEventListener("input", updateFormState);
+form.addEventListener("change", updateFormState);
 
 updateTotals();
+updateFormState();

@@ -35,13 +35,13 @@
           <p class="eyebrow">Seasonal harvest now open</p>
           <h1 id="hero-title">Fresh farm mangoes, picked for your order</h1>
           <p>
-            Sweet, fragrant mangoes from our family farm. Reserve your box,
-            share your delivery address, and we will confirm your order by
+            Sweet, fragrant mangoes from our family farm. Reserve your quantity,
+            share your delivery details, and we will confirm your order by
             phone or WhatsApp.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#order">Place order</a>
-            <a class="button secondary" href="tel:+15551234567">Call seller</a>
+            <a class="button secondary" href="tel:+919226450614">Call seller</a>
           </div>
         </div>
       </section>
@@ -49,11 +49,11 @@
       <section class="rate-strip" aria-label="Current mango rates">
         <div>
           <span class="label">Current rate</span>
-          <strong id="displayRate">₹220 / 1 dozen</strong>
+          <strong id="displayRate">₹220 / 1 kg</strong>
         </div>
         <div>
           <span class="label">Delivery</span>
-          <strong>Local delivery or farm pickup</strong>
+          <strong>Delivery or pickup by confirmation</strong>
         </div>
         <div>
           <span class="label">Season</span>
@@ -73,7 +73,7 @@
               alt="Ripe mangoes arranged together"
             />
             <div>
-              <h3>Premium ripe mango box</h3>
+              <h3>Premium ripe mangoes</h3>
               <p>
                 Best for eating fresh, gifting, smoothies, desserts, and family
                 sharing.
@@ -95,10 +95,10 @@
           </article>
           <article class="mango-card accent-card">
             <span class="big-rate">₹220</span>
-            <h3>Per 1 dozen</h3>
+            <h3>Per 1 kg</h3>
             <p>
-              Update the dozen rates anytime in <strong>script.js</strong>.
-              Quantity and estimated total are calculated automatically.
+              Choose a 1 kg or 5 kg order. Quantity and estimated total are
+              calculated automatically.
             </p>
           </article>
         </div>
@@ -114,26 +114,33 @@
             summary on the page.
           </p>
           <ul class="checks">
-            <li>No payment taken online yet</li>
+            <li>No online payment collected on this website</li>
             <li>Seller confirms stock and delivery time</li>
-            <li>Works as a static page for easy hosting</li>
+            <li>Order details are sent directly by WhatsApp</li>
           </ul>
         </div>
 
         <form class="order-form" id="orderForm">
           <div class="form-row">
-            <label for="customerName">Full name</label>
+            <label for="customerName">Full name <span aria-hidden="true">*</span></label>
             <input id="customerName" name="customerName" type="text" required />
           </div>
 
           <div class="form-row">
-            <label for="phone">Phone number</label>
-            <input id="phone" name="phone" type="tel" required />
+            <label for="phone">Phone number <span aria-hidden="true">*</span></label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              inputmode="tel"
+              pattern="[0-9+\s()-]{8,}"
+              required
+            />
           </div>
 
           <div class="form-row split">
             <div>
-              <label for="quantity">Quantity</label>
+              <label for="quantity">Quantity <span aria-hidden="true">*</span></label>
               <input
                 id="quantity"
                 name="quantity"
@@ -145,51 +152,46 @@
               />
             </div>
             <div>
-              <label for="unit">Unit</label>
-              <select id="unit" name="unit">
-                <option value="1 dozen">1 dozen</option>
-                <option value="5 dozen">5 dozen</option>
+              <label for="unit">Unit <span aria-hidden="true">*</span></label>
+              <select id="unit" name="unit" required>
+                <option value="1 kg">1 kg</option>
+                <option value="5 kg">5 kg</option>
               </select>
             </div>
           </div>
 
           <div class="form-row">
-            <label for="delivery">Delivery option</label>
-            <select id="delivery" name="delivery">
-              <option value="Local delivery">Local delivery</option>
-              <option value="Farm pickup">Farm pickup</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <label for="address">Delivery address</label>
+            <label for="address">Address <span aria-hidden="true">*</span></label>
             <textarea
               id="address"
               name="address"
               rows="3"
-              placeholder="Street, city, ZIP code"
+              placeholder="Street, area, city, PIN code"
               required
             ></textarea>
           </div>
 
           <div class="form-row">
-            <label for="notes">Notes</label>
+            <label for="notes">Notes <span aria-hidden="true">*</span></label>
             <textarea
               id="notes"
               name="notes"
               rows="3"
               placeholder="Preferred delivery time, ripeness preference, or gift note"
+              required
             ></textarea>
           </div>
 
           <div class="total-box" aria-live="polite">
             <span>Estimated total</span>
-            <strong id="estimatedTotal">$28</strong>
+            <strong id="estimatedTotal">₹220</strong>
           </div>
 
           <div class="form-actions">
-            <button class="button primary" type="submit">Send order</button>
-            <button class="button ghost" id="copyOrder" type="button">
+            <button class="button primary" id="sendOrder" type="submit" disabled>
+              Send order
+            </button>
+            <button class="button ghost" id="copyOrder" type="button" disabled>
               Copy details
             </button>
           </div>
@@ -207,17 +209,17 @@
           <h2>Seller contact numbers</h2>
         </div>
         <div class="contact-grid">
-          <a class="contact-card" href="tel:+15551234567">
+          <a class="contact-card" href="tel:+919226450614">
             <span>Primary seller</span>
-            <strong>+1 (555) 123-4567</strong>
+            <strong>+91 92264 50614</strong>
           </a>
-          <a class="contact-card" href="tel:+15559876543">
-            <span>Delivery contact</span>
-            <strong>+1 (555) 987-6543</strong>
+          <a class="contact-card" href="tel:+919226450614">
+            <span>Call orders</span>
+            <strong>+91 92264 50614</strong>
           </a>
           <a
             class="contact-card"
-            href="https://wa.me/15551234567"
+            href="https://wa.me/919226450614"
             target="_blank"
             rel="noreferrer"
           >
@@ -235,8 +237,9 @@
 
     <footer>
       <p>
-        Replace the sample phone numbers, rate, and photos with your farm
-        details before publishing.
+        Dattaguru Mango Farm accepts seasonal mango orders by phone and
+        WhatsApp. Availability, delivery timing, and final payment are confirmed
+        directly with the seller.
       </p>
       <p class="credit">
         Sample mango photos from Wikimedia Commons:
