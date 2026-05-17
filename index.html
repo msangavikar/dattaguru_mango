@@ -46,10 +46,10 @@
         </div>
       </section>
 
-      <section class="rate-strip" aria-label="Current mango rates">
+      <section class="info-strip" aria-label="Order details">
         <div>
-          <span class="label">Current rate</span>
-          <strong id="displayRate">₹230 / 1 kg</strong>
+          <span class="label">Price</span>
+          <strong>Confirmed by seller</strong>
         </div>
         <div>
           <span class="label">Delivery</span>
@@ -94,11 +94,11 @@
             </div>
           </article>
           <article class="mango-card accent-card">
-            <span class="big-rate">₹230</span>
-            <h3>Per 1 kg</h3>
+            <span class="big-rate">20 kg</span>
+            <h3>Flexible order sizes</h3>
             <p>
-              Choose a 1 kg, 5 kg, or 10 kg bulk order. Quantity and estimated
-              total are calculated automatically.
+              Select any quantity from 1 kg to 20 kg. The seller will confirm
+              the current price, availability, and final amount directly.
             </p>
           </article>
         </div>
@@ -138,27 +138,31 @@
             />
           </div>
 
-          <div class="form-row split">
-            <div>
-              <label for="quantity">Quantity <span aria-hidden="true">*</span></label>
-              <input
-                id="quantity"
-                name="quantity"
-                type="number"
-                min="1"
-                max="50"
-                value="1"
-                required
-              />
-            </div>
-            <div>
-              <label for="unit">Unit <span aria-hidden="true">*</span></label>
-              <select id="unit" name="unit" required>
-                <option value="1 kg">1 kg</option>
-                <option value="5 kg">5 kg</option>
-                <option value="10 kg bulk">10 kg bulk</option>
-              </select>
-            </div>
+          <div class="form-row">
+            <label for="orderQuantity">Quantity <span aria-hidden="true">*</span></label>
+            <select id="orderQuantity" name="orderQuantity" required>
+              <option value="">Select quantity</option>
+              <option value="1 kg">1 kg</option>
+              <option value="2 kg">2 kg</option>
+              <option value="3 kg">3 kg</option>
+              <option value="4 kg">4 kg</option>
+              <option value="5 kg">5 kg</option>
+              <option value="6 kg">6 kg</option>
+              <option value="7 kg">7 kg</option>
+              <option value="8 kg">8 kg</option>
+              <option value="9 kg">9 kg</option>
+              <option value="10 kg">10 kg</option>
+              <option value="11 kg">11 kg</option>
+              <option value="12 kg">12 kg</option>
+              <option value="13 kg">13 kg</option>
+              <option value="14 kg">14 kg</option>
+              <option value="15 kg">15 kg</option>
+              <option value="16 kg">16 kg</option>
+              <option value="17 kg">17 kg</option>
+              <option value="18 kg">18 kg</option>
+              <option value="19 kg">19 kg</option>
+              <option value="20 kg">20 kg</option>
+            </select>
           </div>
 
           <div class="form-row">
@@ -181,11 +185,6 @@
               placeholder="Preferred delivery time, ripeness preference, or gift note"
               required
             ></textarea>
-          </div>
-
-          <div class="total-box" aria-live="polite">
-            <span>Estimated total</span>
-            <strong id="estimatedTotal">₹230</strong>
           </div>
 
           <div class="form-actions">
@@ -254,6 +253,6 @@
       </p>
     </footer>
 
-    <script src="script.js?v=20260514-rates"></script>
+    <script src="script.js?v=20260517-order-quantity"></script>
   </body>
 </html>

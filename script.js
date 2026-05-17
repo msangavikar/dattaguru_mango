@@ -2,44 +2,22 @@ const farmConfig = {
   farmName: "Dattaguru Mango Farm",
   sellerPhoneDisplay: "+91 98920 90429",
   sellerWhatsAppNumber: "919226450614",
-  rates: {
-    "1 kg": 230,
-    "5 kg": 1000,
-    "10 kg bulk": 2000,
-  },
+  currentItemName: "Mangoes",
+  quantityOptions: Array.from({ length: 20 }, (_, index) => `${index + 1} kg`),
 };
 
-const currency = new Intl.NumberFormat("en-IN", {
-  style: "currency",
-  currency: "INR",
-  maximumFractionDigits: 0,
-});
-
 const form = document.querySelector("#orderForm");
-const quantityInput = document.querySelector("#quantity");
-const unitInput = document.querySelector("#unit");
-const totalOutput = document.querySelector("#estimatedTotal");
-const displayRate = document.querySelector("#displayRate");
+const quantityInput = document.querySelector("#orderQuantity");
 const summarySection = document.querySelector("#orderSummary");
 const summaryText = document.querySelector("#summaryText");
 const copyButton = document.querySelector("#copyOrder");
 const sendButton = document.querySelector("#sendOrder");
 
-function getRate() {
-  return farmConfig.rates[unitInput.value] || 0;
-}
-
-function getQuantity() {
-  return Math.max(1, Number.parseInt(quantityInput.value, 10) || 1);
-}
-
-function getEstimatedTotal() {
-  return getRate() * getQuantity();
-}
-
-function updateTotals() {
-  totalOutput.textContent = currency.format(getEstimatedTotal());
-  displayRate.textContent = `${currency.format(getRate())} / ${unitInput.value}`;
+function populateQuantityOptions() {
+  quantityInput.replaceChildren(
+    new Option("Select quantity", ""),
+    ...farmConfig.quantityOptions.map((quantity) => new Option(quantity, quantity)),
+  );
 }
 
 function updateFormState() {
@@ -50,23 +28,19 @@ function updateFormState() {
 
 function buildOrderMessage() {
   const data = new FormData(form);
-  const quantity = getQuantity();
-  const unit = data.get("unit");
-  const rate = getRate();
-  const total = getEstimatedTotal();
+  const quantity = data.get("orderQuantity");
 
   return [
-    `New mango order for ${farmConfig.farmName}`,
+    `New farm order for ${farmConfig.farmName}`,
     "",
     `Name: ${data.get("customerName")}`,
     `Phone: ${data.get("phone")}`,
-    `Quantity: ${quantity} x ${unit}`,
-    `Rate: ${currency.format(rate)} per ${unit}`,
-    `Estimated total: ${currency.format(total)}`,
+    `Item: ${farmConfig.currentItemName}`,
+    `Quantity: ${quantity}`,
     `Address: ${data.get("address")}`,
     `Notes: ${data.get("notes") || "None"}`,
     "",
-    "Please confirm availability and delivery time.",
+    "Please confirm availability, current price, final amount, and pick up address.",
   ].join("\n");
 }
 
@@ -110,10 +84,8 @@ copyButton.addEventListener("click", async () => {
   }
 });
 
-quantityInput.addEventListener("input", updateTotals);
-unitInput.addEventListener("change", updateTotals);
 form.addEventListener("input", updateFormState);
 form.addEventListener("change", updateFormState);
 
-updateTotals();
+populateQuantityOptions();
 updateFormState();

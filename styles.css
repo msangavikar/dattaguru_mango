@@ -196,7 +196,7 @@ h3 {
   background: #fff;
 }
 
-.rate-strip {
+.info-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-bottom: 1px solid var(--line);
@@ -204,12 +204,12 @@ h3 {
   color: #fff;
 }
 
-.rate-strip div {
+.info-strip div {
   padding: 24px clamp(20px, 4vw, 56px);
   border-right: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.rate-strip div:last-child {
+.info-strip div:last-child {
   border-right: 0;
 }
 
@@ -369,27 +369,6 @@ textarea:focus {
   opacity: 0.55;
 }
 
-.total-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 18px;
-  border-radius: 8px;
-  background: var(--leaf-dark);
-  color: #fff;
-}
-
-.total-box span {
-  color: rgba(255, 255, 255, 0.74);
-  font-weight: 750;
-}
-
-.total-box strong {
-  color: var(--sun);
-  font-size: 1.9rem;
-}
-
 .form-note {
   margin-bottom: 0;
   font-size: 0.92rem;
@@ -480,14 +459,14 @@ footer p {
       linear-gradient(0deg, rgba(16, 36, 25, 0.8), transparent 48%);
   }
 
-  .rate-strip,
+  .info-strip,
   .mango-grid,
   .order-band,
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
-  .rate-strip div {
+  .info-strip div {
     border-right: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   }
@@ -514,7 +493,4 @@ footer p {
     width: 100%;
   }
 
-  .total-box {
-    display: grid;
-  }
 }
